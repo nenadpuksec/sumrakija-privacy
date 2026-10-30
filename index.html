@@ -5,20 +5,63 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Politika privatnosti – Sumrakija</title>
 <style>
-  :root { color-scheme: light dark; }
-  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height: 1.6; max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
-  h1 { font-size: 1.6rem; }
-  h2 { font-size: 1.15rem; margin-top: 2rem; }
-  .lang-switch { margin: 8px 0 24px; }
-  .placeholder { background: #fff3a3; color: #000; padding: 0 3px; border-radius: 3px; }
-  hr { margin: 40px 0; }
+  :root {
+    --gold: #e0b35a; --gold-soft: #f3d28a; --ink: #1d1712; --paper: #fbf7f0;
+    --text: #2a2119; --muted: #6e6255; --line: #e6dccb; --card: #ffffff; --hl: #fff3b8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ink: #0f0c09; --paper: #17120d; --text: #efe6d6; --muted: #aa9d88; --line: #3a2f22; --card: #211a13; --hl: #6b5a1f;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ink: #0f0c09; --paper: #17120d; --text: #efe6d6; --muted: #aa9d88; --line: #3a2f22; --card: #211a13; --hl: #6b5a1f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.65; }
+  header.hero { background: radial-gradient(circle at 50% 0%, #3a2b18 0%, var(--ink) 70%); color: #f5e9d0;
+    text-align: center; padding: 36px 16px 28px; border-bottom: 2px solid var(--gold); }
+  header.hero img { width: 150px; height: 150px; object-fit: contain; filter: drop-shadow(0 6px 18px rgba(0,0,0,.5)); }
+  header.hero h1 { font-family: Georgia, "Times New Roman", serif; color: var(--gold-soft); font-size: 1.5rem; margin: 14px 0 4px; letter-spacing: .02em; }
+  header.hero p { margin: 0; color: #cdbd9d; font-size: .95rem; }
+  nav.lang { position: sticky; top: 0; z-index: 2; background: var(--paper); border-bottom: 1px solid var(--line);
+    display: flex; justify-content: center; gap: 8px; padding: 10px; }
+  nav.lang a { color: var(--text); text-decoration: none; padding: 6px 16px; border-radius: 999px; border: 1px solid var(--line); font-weight: 600; font-size: .92rem; }
+  nav.lang a:hover, nav.lang a:focus { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  main { max-width: 760px; margin: 0 auto; padding: 8px 18px 56px; }
+  section.doc { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; margin: 22px 0; box-shadow: 0 2px 10px rgba(40,25,10,.06); }
+  section.doc > h1 { font-family: Georgia, "Times New Roman", serif; color: var(--text); font-size: 1.35rem; margin: 0 0 6px; }
+  section.doc h2 { font-size: 1.05rem; color: var(--text); margin: 26px 0 8px; padding-left: 10px; border-left: 3px solid var(--gold); }
+  section.doc p, section.doc li { font-size: 1rem; }
+  section.doc ul { padding-left: 20px; }
+  section.doc li { margin: 6px 0; }
+  a { color: #a8741c; }
+  .placeholder { background: var(--hl); color: var(--text); padding: 0 4px; border-radius: 4px; }
+  code { background: var(--line); padding: 1px 6px; border-radius: 4px; font-size: .9em; word-break: break-all; }
+  footer { text-align: center; color: var(--muted); font-size: .85rem; padding: 0 16px 32px; }
+  hr { display: none; }
+  @media (max-width: 480px) { section.doc { padding: 20px 16px; } header.hero img { width: 120px; height: 120px; } }
 </style>
 </head>
 <body>
 
-<p class="lang-switch"><a href="#sr">Srpski</a> · <a href="#en">English</a></p>
+<header class="hero">
+  <img src="logo.png" alt="Sumrakija logo">
+  <h1>Sumrakija</h1>
+  <p>Politika privatnosti · Privacy policy</p>
+</header>
 
-<section id="sr" lang="sr">
+<nav class="lang">
+  <a href="#sr">Srpski</a>
+  <a href="#en">English</a>
+</nav>
+
+<main>
+
+
+
+<section id="sr" lang="sr" class="doc">
 <h1>Politika privatnosti – Sumrakija</h1>
 <p><strong>Datum stupanja na snagu:</strong> <span class="placeholder">[DATUM]</span></p>
 
@@ -60,9 +103,9 @@ E-mail: <span class="placeholder">sumrakgamesofficial@gmail.com</span><br>
 <span class="placeholder">Pančevo, Srbija</span></p>
 </section>
 
-<hr>
 
-<section id="en" lang="en">
+
+<section id="en" lang="en" class="doc">
 <h1>Privacy Policy – Sumrakija</h1>
 <p><strong>Effective date:</strong> <span class="placeholder">[DATE]</span></p>
 
@@ -104,5 +147,8 @@ Email: <span class="placeholder">sumrakgamesofficial@gmail.com</span><br>
 <span class="placeholder">Pančevo, Serbia</span></p>
 </section>
 
+</main>
+
+<footer>© Sumrak Games</footer>
 </body>
 </html>
